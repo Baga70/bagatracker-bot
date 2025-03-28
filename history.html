@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История тренировок - Дневник тренировок</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Дневник тренировок</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="plan.html">План</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="exercises.html">Упражнения</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="progress.html">Прогресс</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="achievements.html">
+                            <i class="bi bi-trophy"></i> Достижения
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="history.html">История</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings.html">Настройки</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-light" onclick="logout()">
+                        <i class="bi bi-box-arrow-right"></i> Выйти
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 pt-3">
+        <h2>История тренировок</h2>
+
+        <!-- Кнопки управления -->
+        <div class="d-flex justify-content-end mb-4">
+            <button id="select-workouts-btn" class="btn btn-link text-muted me-2">
+                <i class="bi bi-check2-square"></i> Выбрать
+            </button>
+            <button id="delete-selected-btn" class="btn btn-link text-danger" style="display: none;">
+                <i class="bi bi-trash"></i> Удалить
+            </button>
+        </div>
+
+        <!-- Фильтры -->
+        <div class="row mb-4">
+            <div class="col-md-4 mb-3">
+                <label for="period-filter" class="form-label">Период</label>
+                <select class="form-select" id="period-filter">
+                    <option value="">Все время</option>
+                    <option value="day">За последний день</option>
+                    <option value="week">За последнюю неделю</option>
+                    <option value="month">За последний месяц</option>
+                    <option value="three_months">За последние 3 месяца</option>
+                    <option value="six_months">За последние 6 месяцев</option>
+                    <option value="year">За последний год</option>
+                </select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="type-filter" class="form-label">Тип тренировки</label>
+                <select class="form-select" id="type-filter">
+                    <option value="">Все типы</option>
+                    <option value="силовая">Силовая</option>
+                    <option value="кардио">Кардио</option>
+                    <option value="растяжка">Растяжка</option>
+                </select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="date-filter" class="form-label">Конкретная дата</label>
+                <input type="date" class="form-control" id="date-filter">
+            </div>
+        </div>
+
+        <!-- История тренировок -->
+        <div id="workout-history">
+            <!-- Здесь будут отображаться карточки тренировок -->
+        </div>
+
+        <!-- Кнопка "Загрузить ещё" -->
+        <div id="load-more-container" class="text-center mt-4" style="display: none;">
+            <button class="btn btn-primary" onclick="loadMoreWorkouts()">
+                <i class="bi bi-arrow-down-circle"></i> Загрузить ещё
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/pdfGenerator.js"></script>
+    <script src="js/history.js"></script>
+</body>
+
+</html>

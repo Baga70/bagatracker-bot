@@ -1,0 +1,814 @@
+/* Общие стили */
+
+body {
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding-top: 76px;
+    /* Высота навбара (56px) + отступ (20px) */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+    padding-bottom: 2rem;
+}
+
+
+/* Заголовки */
+
+h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: #212529;
+}
+
+body.dark-theme h2 {
+    color: #ffffff;
+}
+
+
+/* Темная тема */
+
+body.dark-theme {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+body.dark-theme .card {
+    background-color: #2d2d2d;
+    border-color: #404040;
+}
+
+body.dark-theme .card-header {
+    background-color: #2d2d2d;
+    border-bottom-color: #404040;
+}
+
+body.dark-theme .card-title {
+    color: #ffffff;
+}
+
+body.dark-theme .form-control,
+body.dark-theme .form-select {
+    background-color: #404040;
+    border-color: #505050;
+    color: #ffffff;
+}
+
+body.dark-theme .form-control:focus,
+body.dark-theme .form-select:focus {
+    background-color: #404040;
+    border-color: #0d6efd;
+    color: #ffffff;
+}
+
+body.dark-theme .form-label {
+    color: #ffffff;
+}
+
+body.dark-theme .table {
+    color: #ffffff;
+}
+
+body.dark-theme .table th {
+    background-color: #2d2d2d;
+    color: #ffffff;
+}
+
+body.dark-theme .table td {
+    border-color: #404040;
+}
+
+body.dark-theme .modal-content {
+    background-color: #2d2d2d;
+    color: #ffffff;
+}
+
+body.dark-theme .modal-header {
+    border-bottom-color: #404040;
+}
+
+body.dark-theme .modal-footer {
+    border-top-color: #404040;
+}
+
+body.dark-theme .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+
+/* Навигация */
+
+.navbar {
+    background-color: #343a40;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+}
+
+body.dark-theme .navbar {
+    background-color: #2d2d2d;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #fff !important;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #fff !important;
+}
+
+.nav-link.active {
+    color: #fff !important;
+    font-weight: bold;
+}
+
+
+/* Профиль */
+
+.profile-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-selector select {
+    max-width: 200px;
+}
+
+
+/* Карточки */
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    background-color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px 10px 0 0 !important;
+    padding: 15px 20px;
+}
+
+.card-title {
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+    color: #212529;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+
+/* Формы */
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 8px 12px;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+
+/* Кнопки */
+
+.btn {
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+
+/* Таблицы */
+
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    border-top: none;
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+
+/* Список упражнений */
+
+.exercise-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.exercise-item {
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.exercise-item:hover {
+    background-color: #f8f9fa;
+}
+
+body.dark-theme .exercise-item:hover {
+    background-color: #404040;
+}
+
+.exercise-item.selected {
+    background-color: #e9ecef;
+}
+
+body.dark-theme .exercise-item.selected {
+    background-color: #404040;
+}
+
+
+/* График прогресса */
+
+.chart-container {
+    position: relative;
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+
+/* Уведомления */
+
+.alert {
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+
+/* Анимации */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+
+/* Адаптивность */
+
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 15px;
+    }
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .table-responsive {
+        margin-bottom: 15px;
+    }
+}
+
+
+/* Кастомные стили для чекбоксов */
+
+.custom-control-input:checked~.custom-control-label::before {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+
+/* Стили для модальных окон */
+
+.modal-content {
+    border-radius: 10px;
+    border: none;
+}
+
+.modal-header {
+    border-bottom: 1px solid #dee2e6;
+    padding: 15px 20px;
+}
+
+.modal-footer {
+    border-top: 1px solid #dee2e6;
+    padding: 15px 20px;
+}
+
+.modal-backdrop {
+    z-index: 1040 !important;
+}
+
+.modal {
+    z-index: 1050 !important;
+}
+
+.modal-dialog {
+    z-index: 1060 !important;
+}
+
+
+/* Стили для вложенных модальных окон */
+
+.modal-child {
+    z-index: 1070 !important;
+}
+
+.modal-child .modal-backdrop {
+    z-index: 1060 !important;
+}
+
+.modal-child+.modal-backdrop {
+    z-index: 1060 !important;
+}
+
+
+/* Стили для скрытого модального окна */
+
+.modal[style*="display: none"] {
+    pointer-events: none;
+}
+
+.modal[style*="display: none"] .modal-dialog {
+    display: none;
+}
+
+
+/* Стили для загрузки */
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.loading::after {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Дополнительные стили для навигационной панели */
+
+.navbar-dark {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Стили для активного пункта меню */
+
+.navbar-nav .nav-link.active {
+    font-weight: 500;
+    position: relative;
+}
+
+.navbar-nav .nav-link.active:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+}
+
+
+/* Плавное появление подчеркивания */
+
+.navbar-nav .nav-link {
+    transition: all 0.2s ease-in-out;
+}
+
+
+/* Стили для контейнера */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Стили для карточек */
+
+.card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: none;
+    border-radius: 8px;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+
+/* Стили для кнопок */
+
+.btn {
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+
+/* Стили для форм */
+
+.form-control,
+.form-select {
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+
+/* Стили для секции ближайшей тренировки */
+
+#next-workout .card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    margin-bottom: 2rem;
+}
+
+#next-workout .card:hover {
+    transform: translateY(-5px);
+}
+
+#next-workout .card-title {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #f8f9fa;
+    padding-bottom: 0.5rem;
+}
+
+#next-workout .exercise-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f8f9fa;
+}
+
+#next-workout .exercise-item:last-child {
+    border-bottom: none;
+}
+
+#next-workout .badge {
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+#next-workout .card-text {
+    color: #666;
+}
+
+#next-workout .bi {
+    margin-right: 0.5rem;
+}
+
+#next-workout .exercises-list {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+}
+
+#next-workout .exercises-list h6 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+#next-workout .btn-primary {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+
+/* Стили для фиксированной навигационной панели */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+}
+
+
+/* Отступ для контента под фиксированной панелью */
+
+body {
+    padding-top: 76px;
+}
+
+
+/* Дополнительные стили для навигационной панели */
+
+.navbar-dark {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Стили для активного пункта меню */
+
+.navbar-nav .nav-link.active {
+    font-weight: 500;
+    position: relative;
+}
+
+.navbar-nav .nav-link.active:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+}
+
+
+/* Плавное появление подчеркивания */
+
+.navbar-nav .nav-link {
+    transition: all 0.2s ease-in-out;
+}
+
+
+/* Стили для контейнера */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Стили для карточек */
+
+.card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: none;
+    border-radius: 8px;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+
+/* Стили для кнопок */
+
+.btn {
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+
+/* Стили для форм */
+
+.form-control,
+.form-select {
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+
+/* Стили для режима выбора тренировок */
+
+.workout-card.selectable {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    user-select: none;
+}
+
+.workout-card.selectable:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.workout-card.selectable::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #dee2e6;
+    border-radius: 3px;
+    background-color: white;
+    transition: all 0.2s ease;
+    z-index: 1;
+}
+
+.workout-card.selected {
+    border-color: #0d6efd;
+    border-width: 1px;
+}
+
+.workout-card.selected::before {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.workout-card.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    width: 18px;
+    height: 18px;
+    z-index: 2;
+}
+
+#select-workouts-btn.active {
+    color: #0d6efd !important;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btn-link {
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.btn-link:hover {
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+
+/* Стили для выбранных упражнений */
+
+.exercise-item.selectable {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    user-select: none;
+}
+
+.exercise-item.selectable:hover {
+    background-color: rgba(0, 123, 255, 0.05);
+}
+
+.exercise-item.selectable::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #dee2e6;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+
+.exercise-item.selectable.selected {
+    border-color: #007bff;
+    background-color: rgba(0, 123, 255, 0.05);
+}
+
+.exercise-item.selectable.selected::before {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.exercise-item.selectable.selected::after {
+    content: '';
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    width: 12px;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+
+/* Стили для кнопок управления */
+
+.btn-link {
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-link:hover {
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.btn-link.active {
+    font-weight: 500;
+}
