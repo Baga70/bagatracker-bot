@@ -50,17 +50,14 @@ bot.on('message', (msg) => {
             break;
 
         case '🌐 Перейти на сайт':
-            bot.sendMessage(chatId,
-                'Переходите на наш сайт: https://bagatracker.ru', {
-                    reply_markup: {
-                        inline_keyboard: [
-                            [
-                                { text: 'Открыть сайт', url: 'https://bagatracker.ru' }
-                            ]
-                        ]
-                    }
+            const inlineKeyboard = {
+                reply_markup: {
+                    inline_keyboard: [
+                        [{ text: 'Открыть сайт', url: 'https://bagatracker.ru' }]
+                    ]
                 }
-            );
+            };
+            bot.sendMessage(chatId, 'Переходите на наш сайт:', inlineKeyboard);
             break;
 
         default:
@@ -69,6 +66,22 @@ bot.on('message', (msg) => {
                 'Привет! Я бот для отслеживания тренировок. Чем могу помочь?',
                 mainKeyboard
             );
+    }
+});
+
+// Обработка callback_query (нажатия на inline-кнопки)
+bot.on('callback_query', (callbackQuery) => {
+    const chatId = callbackQuery.message.chat.id;
+    const data = callbackQuery.data;
+
+    // Отвечаем на callback query
+    bot.answerCallbackQuery(callbackQuery.id);
+
+    // Обрабатываем нажатие на кнопку
+    switch (data) {
+        case 'open_website':
+            bot.sendMessage(chatId, 'Переходите на наш сайт: https://bagatracker.ru');
+            break;
     }
 });
 
