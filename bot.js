@@ -3,22 +3,8 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Инициализация бота с обработкой ошибок
-let bot;
-try {
-    bot = new TelegramBot(process.env.BOT_TOKEN, {
-        polling: {
-            interval: 300,
-            autoStart: true,
-            params: {
-                timeout: 10
-            }
-        }
-    });
-} catch (error) {
-    console.error('Ошибка инициализации бота:', error);
-    process.exit(1);
-}
+// Инициализация бота
+const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: false });
 
 // Создание клавиатуры с кнопками
 const mainKeyboard = {
@@ -120,24 +106,18 @@ bot.onText(/\/website/, (msg) => {
     );
 });
 
-// Обработка ошибок
-bot.on('polling_error', (error) => {
-    console.error('Ошибка polling:', error);
-    // Если ошибка связана с конфликтом, перезапускаем бота
-    if (error.code === 'ETELEGRAM' && error.response.body.error_code === 409) {
-        console.log('Обнаружен конфликт, перезапуск бота...');
-        bot.stopPolling();
-        setTimeout(() => {
-            bot.startPolling();
-        }, 5000);
-    }
+// Настройка webhook
+const webhookUrl = `https://bagatracker-bot.onrender.com/webhook`;
+bot.setWebHook(webhookUrl).then(() => {
+    console.log('Webhook установлен');
+}).catch((error) => {
+    console.error('Ошибка установки webhook:', error);
 });
 
-// Обработка завершения работы
-process.on('SIGINT', () => {
-    console.log('Получен сигнал завершения работы');
-    bot.stopPolling();
-    process.exit(0);
+// Обработка webhook
+app.post('/webhook', (req, res) => {
+    bot.handleUpdate(req.body);
+    res.sendStatus(200);
 });
 
 // Базовый маршрут для проверки работоспособности
